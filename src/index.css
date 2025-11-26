@@ -1,0 +1,49 @@
+@import "tailwindcss";
+@plugin "daisyui";
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap');
+
+.font-urbanist {
+  font-family: "Urbanist", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+
+/* carousel styling */
+.custom-carousel .carousel-slider,
+.custom-carousel .slide {
+  height: 600px !important; /* your desired height */
+}
+
+.carousel-img {
+  width: 1200px !important;
+  height: 600px !important;
+  object-fit: cover;
+  margin-left: auto;             /* center */
+  margin-right: auto;
+  margin-top: 20px;
+  margin-bottom: 80px;
+  border-radius: 12px;
+  border: 4px solid #d1d5db;  /* border-gray-300 */
+}
+
+/* Allow DaisyUI hero content to appear above the carousel layers */
+.custom-carousel .slide {
+  display: block !important;
+  position: relative !important;
+}
+
+.custom-carousel .hero-content {
+  position: relative;
+  z-index: 20; /* text always visible */
+}
+
+.custom-carousel .hero-overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0,0,0,0.4); /* add dark overlay for visibility */
+  z-index: 10;
+}
+
