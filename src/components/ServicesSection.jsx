@@ -28,7 +28,7 @@ export default function ServicesSection() {
   ];
 
   return (
-    <section className="bg-[#003C47] py-16 rounded-t-[40px] rounded-b-[40px]">
+    <section className="bg-[#003C47] py-16 rounded-t-[40px] rounded-b-[40px] mt-8">
       {/* Header Section */}
       <div className="text-center mb-10">
         <div className="inline-block border border-dashed border-cyan-300 px-6 py-3 rounded-xl">
@@ -45,8 +45,8 @@ export default function ServicesSection() {
         {services.map((service, index) => (
           <div
             key={index}
-            className={`p-6 rounded-[25px] shadow-md border border-cyan-200 bg-white hover:bg-teal-500 
-           `}
+            className={`p-6 rounded-[25px] shadow-md border border-cyan-200 bg-white hover:bg-green-300 transition-all duration-300 ease-in-out
+           cursor-pointer`}
           >
             <div className="flex justify-center mb-4">
               <img
