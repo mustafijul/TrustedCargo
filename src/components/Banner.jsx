@@ -1,7 +1,6 @@
 import React from "react";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-
 import banner1 from "../assets/banner/banner1.jpg";
 import banner2 from "../assets/banner/banner2.jpg";
 import banner3 from "../assets/banner/banner3.jpg";
@@ -64,8 +63,8 @@ export default function Banner() {
           
           <div className="hero-overlay"></div>
           <div className="hero-content text-neutral-content text-center">
-            <div className="max-w-md">
-              <h1 className="mb-5 text-5xl font-bold">Delivary in 30 minutes at your doorstep</h1>
+            <div className="max-w-lg">
+              <h1 className="mb-5 text-5xl font-bold">Delivery in 30 minutes at your doorstep</h1>
               <button className="btn btn-primary">Get Started</button>
             </div>
           </div>
