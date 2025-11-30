@@ -17,6 +17,7 @@
     "react-dom": "^19.2.0",
     "react-fast-marquee": "^1.6.5",
     "react-hook-form": "^7.66.1",
+    "react-loader-spinner": "^8.0.0",
     "react-responsive-carousel": "^3.2.23",
     "react-router": "^7.9.6",
     "tailwindcss": "^4.1.17"

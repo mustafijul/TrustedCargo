@@ -1,7 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { AuthContext } from "./AuthContext";
 import { auth } from "../../firebase/firebase.init";
-import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut } from "firebase/auth";
+import {
+  createUserWithEmailAndPassword,
+  GoogleAuthProvider,
+  onAuthStateChanged,
+  signInWithEmailAndPassword,
+  signInWithPopup,
+  signOut,
+} from "firebase/auth";
+
+const googleProvider = new GoogleAuthProvider();
 
 export default function AuthProvider({ children }) {
   const [loading, setLoading] = useState(true);
@@ -17,10 +26,15 @@ export default function AuthProvider({ children }) {
     return signInWithEmailAndPassword(auth, email, password);
   };
 
-  const logOut = () =>{
-    setLoading(true)
-    return signOut(auth)
-  }
+  const signInWithGoogle = () => {
+    setLoading(true);
+    return signInWithPopup(auth, googleProvider);
+  };
+
+  const logOut = () => {
+    setLoading(true);
+    return signOut(auth);
+  };
 
   // Ask Firebase: “Tell me when the user is logged in or logged out.”
   // Then update our app with that information.
@@ -28,7 +42,7 @@ export default function AuthProvider({ children }) {
   useEffect(() => {
     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
-      console.log('user on auth state chnage', currentUser);
+      console.log("user on auth state chnage", currentUser);
       setLoading(false);
     });
     return () => {
@@ -36,14 +50,13 @@ export default function AuthProvider({ children }) {
     };
   }, []);
 
-
-
   const authInfo = {
     user,
     loading,
     createUser,
     signInUser,
-    logOut
+    signInWithGoogle,
+    logOut,
   };
 
   return <AuthContext value={authInfo}>{children}</AuthContext>;

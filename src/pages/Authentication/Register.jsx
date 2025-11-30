@@ -1,6 +1,8 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import useAuth from "../../hooks/useAuth";
+import { Link } from "react-router";
+import SocialLogin from "./SocialLogin";
 
 export default function Register() {
   const {
@@ -73,7 +75,9 @@ export default function Register() {
             Register
           </button>
         </fieldset>
+        <p><small>Already have an account? <Link to="/login"><u>Login</u></Link></small></p>
       </form>
+      <SocialLogin></SocialLogin>
     </div>
   );
 }
