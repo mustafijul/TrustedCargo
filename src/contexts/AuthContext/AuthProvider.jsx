@@ -1,0 +1,50 @@
+import React, { useEffect, useState } from "react";
+import { AuthContext } from "./AuthContext";
+import { auth } from "../../firebase/firebase.init";
+import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut } from "firebase/auth";
+
+export default function AuthProvider({ children }) {
+  const [loading, setLoading] = useState(true);
+  const [user, setUser] = useState(null);
+
+  const createUser = (email, password) => {
+    setLoading(true);
+    return createUserWithEmailAndPassword(auth, email, password);
+  };
+
+  const signInUser = (email, password) => {
+    setLoading(true);
+    return signInWithEmailAndPassword(auth, email, password);
+  };
+
+  const logOut = () =>{
+    setLoading(true)
+    return signOut(auth)
+  }
+
+  // Ask Firebase: “Tell me when the user is logged in or logged out.”
+  // Then update our app with that information.
+
+  useEffect(() => {
+    const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
+      console.log('user on auth state chnage', currentUser);
+      setLoading(false);
+    });
+    return () => {
+      unSubscribe();
+    };
+  }, []);
+
+
+
+  const authInfo = {
+    user,
+    loading,
+    createUser,
+    signInUser,
+    logOut
+  };
+
+  return <AuthContext value={authInfo}>{children}</AuthContext>;
+}
