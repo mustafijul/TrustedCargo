@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import useAuth from "../../hooks/useAuth";
 import { Link } from "react-router";
 import SocialLogin from "./SocialLogin";
+import CargoLogo from "../../shared/CargoLogo";
 
 export default function Register() {
   const {
@@ -28,7 +29,11 @@ export default function Register() {
     <div>
       <form onSubmit={handleSubmit(onSubmit)}>
         <fieldset className="fieldset">
-          <h1 className="text-3xl py-3">Register Now!</h1>
+          <div className="flex gap-2">
+            <CargoLogo></CargoLogo>
+            <h1 className="text-3xl py-3">Register Now!</h1>
+          </div>
+
 
           <label className="label">Name</label>
           <input

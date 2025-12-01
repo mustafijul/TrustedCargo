@@ -9,7 +9,10 @@ export default function Navbar() {
         <NavLink to="/">Home</NavLink>
       </li>
       <li>
-        <NavLink tp="/about">About</NavLink>
+        <NavLink to="/about">About</NavLink>
+      </li>
+      <li>
+        <NavLink to="/coverage">Coverage</NavLink>
       </li>
     </>
   );
