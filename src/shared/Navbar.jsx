@@ -12,6 +12,9 @@ export default function Navbar() {
         <NavLink to="/about">About</NavLink>
       </li>
       <li>
+        <NavLink to="/sendparcel">Send a Parcel</NavLink>
+      </li>
+      <li>
         <NavLink to="/coverage">Coverage</NavLink>
       </li>
     </>
@@ -54,7 +57,7 @@ export default function Navbar() {
           <ul className="menu menu-horizontal px-1">{navitems}</ul>
         </div>
         <div className="navbar-end">
-          <a className="btn">Button</a>
+          <Link to='/login' className="btn btn-primary">Login</Link>
         </div>
       </div>
     </div>
