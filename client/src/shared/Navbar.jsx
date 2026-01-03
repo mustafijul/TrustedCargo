@@ -1,7 +1,9 @@
 import logo  from "../assets/Tlogo.png";
 import { Link, NavLink } from "react-router";
+import useAuth from "../hooks/useAuth";
 
 export default function Navbar() {
+  const {user} = useAuth();
   // navigation items
   const navitems = (
     <>
@@ -14,6 +16,15 @@ export default function Navbar() {
       <li>
         <NavLink to="/sendparcel">Send a Parcel</NavLink>
       </li>
+
+    {
+      user && <>
+      <li>
+        <NavLink to="/dashboard">Dashboard</NavLink>
+      </li>
+      </>
+    }
+
       <li>
         <NavLink to="/coverage">Coverage</NavLink>
       </li>

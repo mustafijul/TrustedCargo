@@ -2,14 +2,17 @@ import { createBrowserRouter } from "react-router";
 import Rootlayout from "../layout/Rootlayout";
 import Home from "../pages/Home";
 import AuthLayout from "../layout/AuthLayout";
-
 import Login from "../pages/Authentication/Login";
 import Register from "../pages/Authentication/Register";
 import Coverage from "../pages/Coverage";
 import PrivateRoute from "../routes/PrivateRoute";
 import SendParcel from "../pages/SendParcel";
+import DashBoardLayout from "../layout/DashBoardLayout";
+
+import MyParcels from "../pages/DashBoard/MyParcels";
 
 export const router = createBrowserRouter([
+
   {
     path: "/",
     Component: Rootlayout,
@@ -29,6 +32,7 @@ export const router = createBrowserRouter([
       }
     ],
   },
+
   {
     path: "/",
     Component: AuthLayout,
@@ -40,6 +44,19 @@ export const router = createBrowserRouter([
       {
         path: '/register',
         Component: Register
+      }
+    ]
+  },
+  
+  {
+    path: '/dashboard',
+    element: <PrivateRoute>
+      <DashBoardLayout></DashBoardLayout>
+    </PrivateRoute>,
+    children: [
+      {
+        path: 'myparcels',
+        Component: MyParcels
       }
     ]
   }
